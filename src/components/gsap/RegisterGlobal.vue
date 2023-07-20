@@ -32,7 +32,7 @@ function hanldeEnter(e) {
       duration: 5
     })
     // 动画时长
-    console.log(tween.endTime() - tween.startTime())
+    // console.log(tween.endTime() - tween.startTime())
   }
 }
 </script>

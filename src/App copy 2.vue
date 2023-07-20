@@ -1,40 +1,30 @@
 <script setup lang="ts">
-import gsap from 'gsap'
-import {gsapUseStore} from '@/store/modules/gsap'
-let gsapStore=gsapUseStore()
-function enter(el, done) {
-  gsap.set(el, { autoAlpha: 0, scale: 0.8, xPercent: -100 })
-  gsap
-    .timeline({
-      paused: true,
-      onComplete() {
-        gsapStore.changeIsLoad(true)
-        done()
-      }
-    })
-    .to(el, { autoAlpha: 1, xPercent: 0, duration: 0.5 })
-    .to(el, { scale: 1, duration: 0.5 })
-    .play()
-  }
-  function leave(el, done) {
-  gsapStore.changeIsLoad(false)
-  gsap
-    .timeline({ paused: true, onComplete: done })
-    .to(el, { scale: 0.8, duration: 0.2 })
-    .to(el, { xPercent: 100, autoAlpha: 0, duration: 0.2 })
-    .play()
+import { ref, nextTick } from 'vue'
+
+let show = ref(false)
+function changeShow() {
+  show.value = !show.value
+}
+let showRouter = ref(true)
+async function changRoute() {
+  showRouter.value = false
+  await nextTick()
+  showRouter.value = true
 }
 </script>
 
 <template>
   <div class="height100 flex-col">
-    <router-link to="/gsap">gsap</router-link>
+    <button @click="changeShow">55</button>
+    <transition name="slide-left">
+      <div v-show="show">hello</div>
+    </transition>
+    <router-link to="/gsap" @change="changRoute">gsap</router-link>
     <router-link to="/flip">flip</router-link>
-    <router-link to="/scrollTrigger">scrollTrigger</router-link>
     <!-- 使用动态过渡名称 -->
-    <router-view v-slot="{ Component }" class="flex-col-all">
-      <transition @enter="enter" @leave="leave" name="routes" mode="out-in">
-        <component :is="Component" />
+    <router-view v-slot="{ Component, route }" class="flex-col-all">
+      <transition :name="route.meta.transition">
+        <component :is="Component" v-show="showRouter" />
       </transition>
     </router-view>
   </div>

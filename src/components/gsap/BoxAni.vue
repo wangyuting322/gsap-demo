@@ -30,18 +30,36 @@
   </div>
 </template>
 <script setup lang="ts" name="BoxAni">
-import { ref, reactive, onMounted } from 'vue'
+import { ref, reactive, onMounted, nextTick } from 'vue'
 import gsap from 'gsap'
+import { gsapUseStore } from '@/store/modules/gsap'
+let gsapStore = gsapUseStore()
 let tween = null
 onMounted(() => {
-  gsapTo()
-  gsapFrom()
-  gsapFromTo()
-  gsapTImieline()
-  groupAnis()
-  randomAni()
-  staggerAni()
+  // gsapTo()
+  // gsapFrom()
+  // gsapFromTo()
+  // gsapTImieline()
+  // groupAnis()
+  // randomAni()
+  // staggerAni()
 })
+watch(
+  () => gsapStore.isLoaded,
+  async(newV) => {
+    if (newV) {
+      await nextTick()
+      gsapTo()
+      gsapFrom()
+      gsapFromTo()
+      gsapTImieline()
+      groupAnis()
+      randomAni()
+      staggerAni()
+    }
+  },
+  { immediate: true }
+)
 /**
  * gsap.to()
  */
@@ -74,10 +92,10 @@ function gsapFrom() {
 function gsapFromTo() {
   let tween = gsap.fromTo(
     '.blue',
-    { x: -100, y: -100 },//from处设置duration无效
-    { rotation: 360, x: 100, y: 100, duration:5 }
+    { x: -100, y: -100 }, //from处设置duration无效
+    { rotation: 360, x: 100, y: 100, duration: 5 }
   )
-  console.log(tween.endTime()-tween.startTime())
+  console.log(tween.endTime() - tween.startTime())
   // 用时5秒
 }
 /**
@@ -88,8 +106,8 @@ function gsapTImieline() {
   tl.to('.pink', { x: 100 })
     .to('.pink', { y: 100 })
     .to('.orange', { rotate: 360 })
-    // console.log(tl.endTime()-tl.startTime())
-    // 用时1.5s，每一段默认0.5s
+  // console.log(tl.endTime()-tl.startTime())
+  // 用时1.5s，每一段默认0.5s
 }
 /**
  * 一系列元素
@@ -130,9 +148,9 @@ function randomAni() {
 function staggerAni() {
   gsap.from('.box2', {
     // 如果定义了多个目标，则可以通过设置类似（每个开始时间之间的 0.1 秒）的值轻松错开每个目标的开始时间。或者，您可以使用交错对象获得更高级的交错。有关详细信息，请参阅交错文档。stagger: 0.1
-    stagger:0.1,
-    yPercent:30,
-    opacity:0.5
+    stagger: 0.1,
+    yPercent: 30,
+    opacity: 0.5
   })
 }
 /**
@@ -186,10 +204,10 @@ function controls(type) {
     border-radius: 5px;
     border: 2px solid black;
   }
-  .ul2{
+  .ul2 {
     width: 200px;
   }
-  .box2{
+  .box2 {
     height: 50px;
     width: 50px;
     border-radius: 5px;

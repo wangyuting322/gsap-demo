@@ -18,6 +18,9 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src')
     }
   },
+  server:{
+    host:'192.168.2.141'
+  },
   // css预处理器
   css: {
     preprocessorOptions: {
