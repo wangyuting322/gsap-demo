@@ -31,6 +31,8 @@ function enter(el, done) {
     <router-link to="/gsap">gsap</router-link>
     <router-link to="/flip">flip</router-link>
     <router-link to="/scrollTrigger">scrollTrigger</router-link>
+    <router-link to="/observer">observer</router-link>
+    <router-link to="/splitText">splitText</router-link>
     <!-- 使用动态过渡名称 -->
     <router-view v-slot="{ Component }" class="flex-col-all">
       <transition @enter="enter" @leave="leave" name="routes" mode="out-in">

@@ -1,5 +1,5 @@
 <template>
-  <div class="FlipView flex-col">
+  <div class="SplitTextView flex-col">
     <nav class="flex-row pointer">
       <div
         v-for="(item, index) in list"
@@ -18,17 +18,9 @@
 </template>
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
-import ChangeBox from '@/components/flip/ChangeBox.vue'
-import FlexAni from '@/components/flip/FlexAni.vue'
-import ImageInfo from '@/components/flip/ImageInfo.vue'
-import ImageShrink from '@/components/flip/ImageShrink.vue'
-import AddBox from '@/components/flip/AddBox.vue'
+import TextAni from '@/components/splitText/TextAni.vue'
 let list = [
-  { name: '元素交换位置', cmp: ChangeBox },
-  { name: 'flex布局动画', cmp: FlexAni },
-  { name: '图片详情', cmp: ImageInfo },
-  { name: '图片放大', cmp: ImageShrink },
-  { name: '添加box', cmp: AddBox },
+  { name: '文字动画', cmp: TextAni },
 ]
 let activeIndex = ref(0)
 function changeAcctive(index) {
@@ -36,8 +28,7 @@ function changeAcctive(index) {
 }
 </script>
 <style lang="scss" scoped>
-.FlipView{
-  background-color: darkgreen;
+.SplitTextView {
   nav {
   div {
     font-size: 18px;
@@ -48,6 +39,5 @@ function changeAcctive(index) {
     color: red;
   }
 }
-
 }
 </style>

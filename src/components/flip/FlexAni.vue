@@ -1,5 +1,5 @@
 <template>
-  <div class="Flip2">
+  <div class="FlexAni">
     <button id="changeLayout" class="button" @click="change">change</button>
     <div class="group" ref="group" :class="{ reorder: activeState }">
       <!-- <div class="group"> -->
@@ -61,7 +61,7 @@ async function change() {
 }
 </script>
 <style lang="scss" scoped>
-.Flip2 {
+.FlexAni {
   .group.reorder {
     flex-direction: row;
   }

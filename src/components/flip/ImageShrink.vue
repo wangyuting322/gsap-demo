@@ -1,5 +1,5 @@
 <template>
-  <div class="Flip4">
+  <div class="ImageShrink">
     <img
       class="thumbnail"
       data-flip-id="img"
@@ -41,7 +41,7 @@ onMounted(() => {
 })
 </script>
 <style lang="scss" scoped>
-.Flip4 {
+.ImageShrink {
   .container {
     border: 1px solid rgba(255, 255, 255, 0.3);
     position: fixed;

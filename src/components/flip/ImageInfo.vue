@@ -1,5 +1,5 @@
 <template>
-  <div class="Flip3">
+  <div class="ImageInfo">
     <div class="gallery">
       <div
         v-for="(item, index) in dataList"
@@ -209,7 +209,7 @@ onMounted(() => {
 })
 </script>
 <style lang="scss" scoped>
-.Flip3 {
+.ImageInfo {
   height: 60vmin;
   width: 60vmin;
   position: relative;

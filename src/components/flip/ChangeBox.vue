@@ -1,5 +1,5 @@
 <template>
-  <div class="Flip">
+  <div class="ChangeBox">
     <div class="container flex-row flex-jc-between" @click="doFlip">
       <div class="square" id="sq1">1</div>
       <div class="square" id="sq2">2</div>
@@ -36,7 +36,7 @@ function swap([a, b]) {
 }
 </script>
 <style lang="scss" scoped>
-.Flip {
+.ChangeBox {
   .square {
     width: 100px;
     height: 100px;
