@@ -38,16 +38,6 @@ function changeAcctive(index) {
 <style lang="scss" scoped>
 .FlipView{
   background-color: darkgreen;
-  nav {
-  div {
-    font-size: 18px;
-    margin: 5px;
-    transition: all 500ms;
-  }
-  .activeNav {
-    color: red;
-  }
-}
 
 }
 </style>

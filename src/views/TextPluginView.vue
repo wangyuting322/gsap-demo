@@ -1,5 +1,5 @@
 <template>
-  <div class="SplitTextView flex-col">
+  <div class="TextPluginView flex-col">
     <nav class="flex-row pointer">
       <div
         v-for="(item, index) in list"
@@ -18,7 +18,7 @@
 </template>
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
-import TextAni from '@/components/splitText/TextAni.vue'
+import TextAni from '@/components/textPlugin/TextAni.vue'
 let list = [
   { name: '文字动画', cmp: TextAni },
 ]
@@ -28,16 +28,7 @@ function changeAcctive(index) {
 }
 </script>
 <style lang="scss" scoped>
-.SplitTextView {
-  nav {
-  div {
-    font-size: 18px;
-    margin: 5px;
-    transition: all 500ms;
-  }
-  .activeNav {
-    color: red;
-  }
-}
+.TextPluginView {
+
 }
 </style>

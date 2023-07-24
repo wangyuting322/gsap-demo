@@ -34,15 +34,5 @@ function changeAcctive(index) {
 <style lang="scss" scoped>
 .GsapView {
   background-color: burlywood;
-  nav {
-  div {
-    font-size: 18px;
-    margin: 5px;
-    transition: all 500ms;
-  }
-  .activeNav {
-    color: red;
-  }
-}
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="ScrollTriggerView flex-col">
+  <div class="SvgView flex-col">
     <nav class="flex-row pointer">
       <div
         v-for="(item, index) in list"
@@ -18,13 +18,13 @@
 </template>
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
-import ScrollTrigger from '@/components/scrollTrigger/ScrollTrigger.vue'
-import ScrollShowBox from '@/components/scrollTrigger/ScrollShowBox.vue'
-import ScrollSection from '@/components/scrollTrigger/ScrollSection.vue'
+import Polygon from '@/components/svg/Polygon.vue'
+import ViewBox from '@/components/svg/ViewBox.vue'
+import Path from '@/components/svg/Path.vue'
 let list = [
-  { name: '滚动+timeline', cmp: ScrollTrigger },
-  { name: '依次滚动', cmp: ScrollShowBox },
-  { name: 'section滚动', cmp: ScrollSection },
+  { name: '多边形-圆角', cmp: Polygon },
+  { name: 'viewBox自适应', cmp: ViewBox },
+  { name: '路径path', cmp: Path },
 ]
 let activeIndex = ref(0)
 function changeAcctive(index) {
@@ -32,9 +32,6 @@ function changeAcctive(index) {
 }
 </script>
 <style lang="scss" scoped>
-.ScrollTriggerView{
-  // background-color: paleturquoise;
-
-
+.SvgView {
 }
 </style>
